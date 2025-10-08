@@ -98,29 +98,22 @@
   </header>
 
   <div class="app">
-    <div class="panels">
-      <aside class="left">
-        <h3>Sign in</h3>
-        <div class="label">Telegram username or InterLink ID</div>
-        <input id="identity" placeholder="@CoachJoel or 950150519" />
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <button id="signin" class="btn">Sign in</button>
-          <button id="clear" class="btn ghost">Clear</button>
-        </div>
+  <div class="panels">
+    <aside class="left">
+      <h3>Sign in</h3>
+      <div class="label">Telegram username or InterLink ID</div>
+      <input id="identity" placeholder="@CoachJoel or 950150519" />
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button id="signin" class="btn">Sign in</button>
+        <button id="clear" class="btn ghost">Clear</button>
+      </div>
 
-        <div style="margin-top:12px" class="small">Ambassador quick-list:</div>
-        <div id="amb-list" style="margin-top:8px" class="small"></div>
-
-        <hr style="border-color:rgba(255,255,255,0.02);margin:12px 0">
-
-        <div class="small">Settings</div>
-        <div style="margin-top:6px" class="small">Paste Gemini API key in the script (or manage locally)</div>
-        <div style="margin-top:12px" class="small">Notes:</div>
-        <ul style="color:#bfefff;font-size:13px">
-          <li>Memory stored locally (localStorage).</li>
-          <li>To use external memory, see commented block in the script.</li>
-        </ul>
-      </aside>
+      <div style="margin-top:12px" class="small">
+        Coach Joel AI will guide you through your InterLink journey and explain how to become an Ambassador.  
+        This AI is your personal assistant — simply type your name or InterLink ID to start.
+      </div>
+      <hr style="border-color:rgba(255,255,255,0.02);margin:12px 0">
+    </aside>
 
       <section class="right">
         <div class="chat-header">
@@ -145,8 +138,6 @@
       </section>
     </div>
   </div>
-
-<!-- SCRIPT REMAINS SAME AS YOUR ORIGINAL -->
 </body>
 </html>
 
@@ -169,7 +160,7 @@ const API_KEY = "AIzaSyD94Z7p_uqLXPFmm2th9noOcEZwLWkGOqE"; // <- Embedded per re
 
 /* Professional, concise system instructions — no filler greetings */
 const SYSTEM_PROMPT = `Role:
-You are Coach Joel AI, a professional motivational mentor for InterLink Ambassadors.
+You are Coach Joel AI, a professional motivational mentor for InterLink Community, Specially the Ambassadors.
 
 Style rules (required):
 - Be concise, professional, and direct. Avoid "Hello there", "That's an excellent question", or similar filler.
@@ -179,25 +170,11 @@ Style rules (required):
 
 Constraints:
 1. Never claim access to training data.
-2. Stay focused on InterLink/Ambassador topics.
+2. Stay focused on InterLink/Community and Specially the InterLink Global Ambassadors Level 5 System topics.
 3. If information is missing, ask a clarifying question.
 4. If outside scope, politely decline and refer to official resources.
 `;
 
-/* ========== SAMPLE/EXTERNAL MEMORY (where to load store) ==========
-If you want to load memory from an external file (for example a JSON on GitHub),
-uncomment and adapt the fetch example below.
-
-Example (uncomment to use):
-(async () => {
-  const res = await fetch('https://raw.githubusercontent.com/your-username/your-repo/main/memory.json');
-  // memory.json must be CORS-allowed (raw.githubusercontent.com is fine)
-  const externalMemory = await res.json();
-  // Use externalMemory as needed (e.g. merge into aiMemory)
-})();
-
-For now we keep the local aiMemory array:
-=========================================== */
 const aiMemory = [
   {country: "Indonesia", coach: "Coach Joel", telegram: "@King_Fath", tier: "Tier 1", id: "99575"},
   {country: "Thailand", coach: "Coach Joel", telegram: "@RhenNakamoto_InterlinkLabs", tier: "Tier 2", id: "99152"}
@@ -451,3 +428,4 @@ init();
 </script>
 </body>
 </html>
+
