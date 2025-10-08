@@ -5,115 +5,34 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Coach Joel AI — Professional Mentor</title>
 
-<!-- Inter-like font for clean chat text -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --bg:#f4f6f8; --panel:#ffffff; --muted:#6b7280; --accent:#0ea5e9;
-    --neon-bg-start: #001428; --neon-bg-end:#000010;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
-  body{
-    background: linear-gradient(180deg,var(--neon-bg-start),var(--neon-bg-end));
-    color:#e6f7ff;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    display:flex;flex-direction:column;align-items:center;padding:18px;
-    height: 100vh;
-  }
-
-  header{
-    width:100%;max-width:1100px;
-    background:linear-gradient(90deg,#052a46,#0b6fbf);
-    padding:14px 18px;border-radius:10px;color:#dff9ff;
-    box-shadow:0 10px 30px rgba(3,102,214,0.15);
-    font-weight:700;display:flex;justify-content:space-between;align-items:center;
-    flex-shrink:0;
-  }
-  .brand { display:flex; gap:12px; align-items:center; }
-  .brand-logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(90deg,#1de9ff,#6a7cff);display:flex;align-items:center;justify-content:center;color:#001;font-weight:700}
-  .brand h1{margin:0;font-size:18px;font-family:Inter,system-ui;font-weight:700;color:#001}
-
-  .app{
-    width:100%;max-width:1100px;margin-top:18px;display:flex;gap:18px;flex-direction:column;flex:1;
-    height: calc(100% - 90px);
-  }
-
-  .panels{display:flex;gap:18px;flex:1;overflow:hidden}
-  .left{
-    width:320px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.04);
-    border-radius:12px;padding:14px;color:#dff9ff;
-    box-shadow:0 8px 30px rgba(0,0,0,0.4);
-    flex-shrink:0;
-    overflow-y:auto;
-  }
-  .left h3{margin:6px 0 8px 0}
-  .left .label{font-size:13px;color:#bfefff;margin-top:8px}
-  .left input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.25);color:#e6f7ff}
-
-  .right{
-    flex:1;display:flex;flex-direction:column;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.04);border-radius:12px;overflow:hidden;
-    height:100%;
-  }
-
-  .chat-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.02);flex-shrink:0;background:#052a46;}
-  .chat-header .status{font-size:13px;color:#bfefff}
-
-  .chat-body{flex:1;padding:16px;overflow-y:auto;overflow-x:hidden;background:linear-gradient(180deg,rgba(0,0,10,0.3),transparent);display:flex;flex-direction:column;}
-  .msg{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;max-width:85%}
-  .msg.user{margin-left:auto;flex-direction:row-reverse}
-  .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(90deg,#1de9ff,#6a7cff);display:flex;align-items:center;justify-content:center;color:#001;font-weight:700;flex-shrink:0;box-shadow:0 6px 24px rgba(29,233,255,0.06)}
-  .bubble{padding:12px 14px;border-radius:10px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
-  .msg.user .bubble{background:linear-gradient(180deg,#dff8ff,#c0f0ff);color:#001}
-  .msg.ai .bubble{background:rgba(255,255,255,0.03);border:1px solid rgba(29,233,255,0.06);color:#dff9ff}
-
-  .composer{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,0.02);align-items:center;background:linear-gradient(180deg,transparent,rgba(0,0,10,0.3));flex-shrink:0;}
-  textarea#composer{flex:1;min-height:48px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.28);color:#e6f7ff;resize:none;font-family:Inter,system-ui}
-  .btn{padding:10px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,#0ea5e9,#6a7cff);color:#001;font-weight:700;cursor:pointer}
-  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:#dff9ff}
-  .btn.circle{width:44px;height:44px;border-radius:12px;padding:0;display:flex;align-items:center;justify-content:center}
-
-  .typing{font-style:italic;color:#bfefff;margin:8px 0;text-align:center}
-  .small{font-size:13px;color:#bfefff}
-
-  @media (max-width:980px){
-    .panels{flex-direction:column}
-    .left{width:100%}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <div class="brand">
       <div class="brand-logo">CJ</div>
-      <h1 style="font-size:13px;color:#bfefff" >Coach Joel AI</h1>
+      <h1 style="font-size:13px;color:#bfefff">Coach Joel AI</h1>
     </div>
     <div style="font-size:13px;color:#bfefff">Motivational Mentor • Powered by: InterLink Labs</div>
   </header>
 
   <div class="app">
-  <div class="panels">
-    <aside class="left">
-      <h3>Sign in</h3>
-      <div class="label">Telegram username or InterLink ID</div>
-      <input id="identity" placeholder="@CoachJoel or 950150519" />
-      <div style="display:flex;gap:8px;margin-top:10px">
-        <button id="signin" class="btn">Sign in</button>
-        <button id="clear" class="btn ghost">Clear</button>
-      </div>
-
-      <div style="margin-top:12px" class="small">
-        Coach Joel AI will guide you through your InterLink journey and explain how to become an Ambassador.  
-        This AI is your personal assistant — simply type your name or InterLink ID to start.
-      </div>
-      <hr style="border-color:rgba(255,255,255,0.02);margin:12px 0">
-    </aside>
+    <div class="panels">
+      <aside class="left">
+        <h3>Sign in</h3>
+        <div class="label">Telegram username or InterLink ID</div>
+        <input id="identity" placeholder="@CoachJoel or 950150519" />
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button id="signin" class="btn">Sign in</button>
+          <button id="clear" class="btn ghost">Clear</button>
+        </div>
+        <div style="margin-top:12px" class="small">
+          Coach Joel AI will guide you through your InterLink journey and explain how to become an Ambassador.  
+        </div>
+        <div id="amb-list" style="margin-top:8px" class="small"></div>
+        <hr style="border-color:rgba(255,255,255,0.02);margin:12px 0">
+      </aside>
 
       <section class="right">
         <div class="chat-header">
@@ -138,294 +57,7 @@
       </section>
     </div>
   </div>
+
+<script src="app.js"></script>
 </body>
 </html>
-
-
-<script>
-/* -------------------------------------------------------
-  Coach Joel AI — Single file app (ready for GitHub Pages)
-  - Professional concise tone enforced in system prompt
-  - Embedded Gemini key (Option A) below (user requested)
-  - TTS toggle works and cancels mid-speech
-  - Voice-to-text (SpeechRecognition) works in supported browsers
-  - Local memory stored in localStorage per user
-  - Comment block shows how to load external memory (GitHub)
-------------------------------------------------------- */
-
-/* ========== CONFIG ========== */
-/* NOTE: You asked to embed your key. This will work, but is public if repo is public. */
-const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
-const API_KEY = "AIzaSyD94Z7p_uqLXPFmm2th9noOcEZwLWkGOqE"; // <- Embedded per request
-
-/* Professional, concise system instructions — no filler greetings */
-const SYSTEM_PROMPT = `Role:
-You are Coach Joel AI, a professional motivational mentor for InterLink Community, Specially the Ambassadors.
-
-Style rules (required):
-- Be concise, professional, and direct. Avoid "Hello there", "That's an excellent question", or similar filler.
-- Use short paragraphs or bullet lists for clarity.
-- When listing steps or categories, use markdown-style bullets.
-- End with a brief encouraging sentence (1 short sentence).
-
-Constraints:
-1. Never claim access to training data.
-2. Stay focused on InterLink/Community and Specially the InterLink Global Ambassadors Level 5 System topics.
-3. If information is missing, ask a clarifying question.
-4. If outside scope, politely decline and refer to official resources.
-`;
-
-const aiMemory = [
-  {country: "Indonesia", coach: "Coach Joel", telegram: "@King_Fath", tier: "Tier 1", id: "99575"},
-  {country: "Thailand", coach: "Coach Joel", telegram: "@RhenNakamoto_InterlinkLabs", tier: "Tier 2", id: "99152"}
-];
-/* ================================================================ */
-
-let currentUser = null;
-let localMemory = []; // chat history per user
-let ttsEnabled = true;
-let currentUtterance = null;
-
-/* DOM refs */
-const identityInput = document.getElementById('identity');
-const signinBtn = document.getElementById('signin');
-const clearBtn = document.getElementById('clear');
-const ambListEl = document.getElementById('amb-list');
-const greetingEl = document.getElementById('greeting');
-const statusEl = document.getElementById('status');
-const chatArea = document.getElementById('chat-area');
-const composer = document.getElementById('composer');
-const sendBtn = document.getElementById('send');
-const voiceBtn = document.getElementById('voiceBtn');
-const ttsToggle = document.getElementById('tts-toggle');
-const micToggle = document.getElementById('mic-toggle');
-const logoutBtn = document.getElementById('logout');
-
-/* render ambassadors quick list */
-function renderAmbassadors(){
-  ambListEl.innerHTML = '';
-  aiMemory.forEach(a=>{
-    const d = document.createElement('div');
-    d.textContent = `${a.coach} — ${a.country} — ${a.telegram} — ${a.tier} — ID:${a.id}`;
-    ambListEl.appendChild(d);
-  });
-}
-renderAmbassadors();
-
-/* ---------- Sign in / sign out / clear ---------- */
-signinBtn.onclick = () => {
-  const id = identityInput.value.trim();
-  if(!id){ alert('Enter Telegram username or InterLink ID'); return; }
-  currentUser = id;
-  greetingEl.textContent = `Hello, ${currentUser}`;
-  status('Ready');
-  // load saved chat if any
-  localMemory = JSON.parse(localStorage.getItem('coachjoel_mem_' + currentUser)) || [];
-  renderChat();
-};
-
-logoutBtn.onclick = () => {
-  currentUser = null;
-  greetingEl.textContent = 'Sign in to begin';
-  chatArea.innerHTML = '';
-  status('Idle');
-};
-
-clearBtn.onclick = () => {
-  if(!currentUser){ alert('Sign in first'); return; }
-  if(confirm('Clear local conversation for ' + currentUser + '?')){
-    localStorage.removeItem('coachjoel_mem_' + currentUser);
-    localMemory = [];
-    renderChat();
-    status('Cleared');
-  }
-};
-
-/* ---------- UI helpers ---------- */
-function status(text){ statusEl.textContent = 'Status: ' + text; }
-function renderChat(){
-  chatArea.innerHTML = '';
-  localMemory.forEach(m => appendMessage(m.role, m.text));
-  chatArea.scrollTop = chatArea.scrollHeight;
-}
-function appendMessage(role, text){
-  const row = document.createElement('div');
-  row.className = 'msg ' + (role === 'user' ? 'user' : 'ai');
-  const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = role === 'user' ? 'U' : 'C';
-  const bubble = document.createElement('div'); bubble.className = 'bubble';
-  // format text into paragraphs
-  const parts = text.split(/\n{2,}/).map(p => `<p>${escapeHtml(p)}</p>`).join('');
-  bubble.innerHTML = parts;
-  row.appendChild(avatar);
-  row.appendChild(bubble);
-  chatArea.appendChild(row);
-  chatArea.scrollTop = chatArea.scrollHeight;
-}
-function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
-
-/* ---------- Enter to send & Send button ---------- */
-composer.addEventListener('keydown', (e) => {
-  if(e.key === 'Enter' && !e.shiftKey){
-    e.preventDefault();
-    sendMessage();
-  }
-});
-sendBtn.onclick = sendMessage;
-
-/* ---------- Voice to text (STT) ---------- */
-let recognition = null;
-if('SpeechRecognition' in window || 'webkitSpeechRecognition' in window){
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  recognition = new SR();
-  recognition.lang = 'en-US';
-  recognition.interimResults = false;
-  recognition.maxAlternatives = 1;
-  recognition.onresult = (ev) => {
-    const t = ev.results[0][0].transcript;
-    composer.value = t;
-    composer.focus();
-  };
-  recognition.onerror = (ev) => {
-    console.warn('Speech recognition error', ev);
-  };
-}
-voiceBtn.onclick = () => {
-  if(!recognition){ alert('Speech recognition not supported in this browser'); return; }
-  try {
-    recognition.start();
-  } catch(err){
-    console.warn('STT start error', err);
-  }
-};
-micToggle.onclick = () => {
-  // toggle mic on/off - toggling simply starts recognition once (auto-send handled by user)
-  if(!recognition){ alert('Speech recognition not supported'); return; }
-  recognition.start();
-};
-
-/* ---------- Text-to-Speech (TTS) ---------- */
-ttsToggle.onclick = () => {
-  ttsEnabled = !ttsEnabled;
-  ttsToggle.textContent = ttsEnabled ? '🔊 TTS: On' : '🔇 TTS: Off';
-  if(!ttsEnabled) {
-    // stop ongoing speech immediately
-    if(window.speechSynthesis) window.speechSynthesis.cancel();
-    currentUtterance = null;
-  }
-};
-function speakText(text){
-  if(!ttsEnabled) return;
-  if(!window.speechSynthesis) return;
-  // stop previous
-  window.speechSynthesis.cancel();
-  currentUtterance = new SpeechSynthesisUtterance(text);
-  // male-voice preference: browser-dependent; we pick a suitable voice if available
-  const voices = window.speechSynthesis.getVoices();
-  let male = voices.find(v=>/male|Daniel|David|John|Alex|Guy/i.test(v.name));
-  if(!male) male = voices.find(v=>/en-?us/i.test(v.lang)) || voices[0];
-  if(male) currentUtterance.voice = male;
-  currentUtterance.lang = 'en-US';
-  currentUtterance.rate = 1;
-  currentUtterance.pitch = 1;
-  window.speechSynthesis.speak(currentUtterance);
-}
-
-/* ---------- Build system prompt + conversation and call Gemini ---------- */
-function buildPrompt(latestUserText){
-  // Compose concise system + last N turns
-  const last = localMemory.slice(-12);
-  const convo = last.map(m => (m.role === 'user' ? `User: ${m.text}` : `Coach Joel AI: ${m.text}`)).join("\n");
-  return `${SYSTEM_PROMPT}\n\nConversation:\n${convo}\n\nUser: ${latestUserText}\nAssistant:`;
-}
-
-/* ---------- Typing indicator & progressive reveal ---------- */
-function showTypingReveal(answerText){
-  // add typing bubble
-  const typingRow = document.createElement('div'); typingRow.className = 'msg ai';
-  const av = document.createElement('div'); av.className='avatar'; av.textContent='C';
-  const bubble = document.createElement('div'); bubble.className='bubble';
-  bubble.innerHTML = `<p class="typing">Coach Joel AI is composing…</p>`;
-  typingRow.appendChild(av); typingRow.appendChild(bubble);
-  chatArea.appendChild(typingRow);
-  chatArea.scrollTop = chatArea.scrollHeight;
-
-  // reveal after small delay
-  setTimeout(()=>{
-    bubble.innerHTML = '<p></p>';
-    const p = bubble.querySelector('p');
-    let i=0;
-    const speed = 10; // chars per frame
-    function step(){
-      i += speed;
-      p.textContent = answerText.slice(0,i);
-      chatArea.scrollTop = chatArea.scrollHeight;
-      if(i < answerText.length) requestAnimationFrame(step);
-      else {
-        // finalize: push to memory & save
-        localMemory.push({role:'ai', text: answerText});
-        localStorage.setItem('coachjoel_mem_' + currentUser, JSON.stringify(localMemory));
-      }
-    }
-    requestAnimationFrame(step);
-  }, 600 + Math.random()*400);
-}
-
-/* ---------- sendMessage: main flow ---------- */
-async function sendMessage(){
-  if(!currentUser){ alert('Please sign in first'); return; }
-  const text = composer.value.trim();
-  if(!text) return;
-  // push user text
-  localMemory.push({role:'user', text});
-  localStorage.setItem('coachjoel_mem_' + currentUser, JSON.stringify(localMemory));
-  renderChat();
-  composer.value = '';
-  status('Thinking...');
-
-  // optional: attach user profile info from aiMemory
-  const profile = aiMemory.find(a => a.id.toLowerCase() === currentUser.toLowerCase() || a.telegram.toLowerCase() === currentUser.toLowerCase());
-  const userInfo = profile ? `Profile: ${profile.coach} (${profile.country}), Tier: ${profile.tier}` : 'Profile: not found';
-
-  // build prompt
-  const prompt = SYSTEM_PROMPT + "\n\nUser Info:\n" + userInfo + "\n\nConversation:\n" + localMemory.slice(-12).map(m => (m.role==='user' ? `User: ${m.text}` : `Coach Joel AI: ${m.text}`)).join("\n") + `\n\nUser: ${text}\nAssistant:`;
-
-  const payload = { contents: [{ parts: [{ text: prompt }] }] };
-
-  try {
-    status('Please wait...');
-    const resp = await fetch(GEMINI_ENDPOINT + '?key=' + encodeURIComponent(API_KEY), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const j = await resp.json();
-    // parse
-    const answer = j?.candidates?.[0]?.content?.parts?.map(p=>p.text).join('\n') || 'I could not generate a response. Please try again later.';
-    status('Ready');
-    // show progressive reveal
-    showTypingReveal(answer);
-    // speak if enabled
-    speakText(answer);
-  } catch(err){
-    console.error('API error', err);
-    localMemory.push({role:'ai', text: 'Error: ' + (err.message||err)});
-    localStorage.setItem('coachjoel_mem_' + currentUser, JSON.stringify(localMemory));
-    renderChat();
-    status('Error contacting API');
-  }
-}
-
-/* ---------- Init ---------- */
-function init(){
-  // initial ambassador list rendered already
-  // Try to populate voices (some browsers need an event)
-  if(window.speechSynthesis && window.speechSynthesis.getVoices().length === 0){
-    window.speechSynthesis.onvoiceschanged = ()=>{};
-  }
-  status('Idle');
-}
-init();
-</script>
-</body>
-</html>
-
