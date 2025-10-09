@@ -6005,27 +6005,12 @@ renderAmbassadors();
 /* ---------- Sign in / sign out / clear ---------- */
 signinBtn.onclick = () => {
   const id = identityInput.value.trim();
-  if (!id) {
-    alert('Enter Telegram username or InterLink ID');
-    return;
-  }
+  if(!id){ alert('Enter Telegram username or InterLink ID'); return; }
   currentUser = id;
   greetingEl.textContent = `Hello, ${currentUser}`;
   status('Ready');
   localMemory = JSON.parse(localStorage.getItem('coachjoel_mem_' + currentUser)) || [];
   renderChat();
-
-  // Scroll chat section into view on mobile
-  const rightPanel = document.querySelector('.right');
-  rightPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  // Highlight chat panel only for mobile
-  if (window.innerWidth <= 980) {
-    rightPanel.classList.add('chat-highlight');
-    setTimeout(() => {
-      rightPanel.classList.remove('chat-highlight');
-    }, 2000); // highlight for 2 seconds
-  }
 };
 
 logoutBtn.onclick = () => {
@@ -6238,49 +6223,5 @@ function init(){
     window.speechSynthesis.onvoiceschanged = ()=>{};
   }
   status('Idle');
-
-  // Highlight sign-in panel on load for mobile
-  if (window.innerWidth <= 980) {
-    document.querySelector(".left").classList.add("signin-highlight");
-  }
 }
-
-/* ---------- Sign in / sign out / clear ---------- */
-signinBtn.onclick = () => {
-  const id = identityInput.value.trim();
-  if (!id) {
-    alert('Enter Telegram username or InterLink ID');
-    return;
-  }
-  currentUser = id;
-  greetingEl.textContent = `Hello, ${currentUser}`;
-  status('Ready');
-  localMemory = JSON.parse(localStorage.getItem('coachjoel_mem_' + currentUser)) || [];
-  renderChat();
-
-  // Remove sign-in highlight
-  document.querySelector(".left").classList.remove("signin-highlight");
-
-  // Scroll chat section into view on mobile
-  const rightPanel = document.querySelector('.right');
-  rightPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  // Highlight chat panel only for mobile
-  if (window.innerWidth <= 980) {
-    rightPanel.classList.add('chat-highlight');
-    setTimeout(() => {
-      rightPanel.classList.remove('chat-highlight');
-    }, 2000); // highlight for 2 seconds
-  }
-};
-
-
-@keyframes highlightSignIn {
-  0% { box-shadow: 0 0 0px rgba(0, 212, 255, 0); }
-  50% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
-}
-
-
-
-
+init();
