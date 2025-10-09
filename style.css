@@ -422,3 +422,15 @@ html {
   }
 }
 
+.chat-highlight {
+  animation: highlightChat 1s ease forwards;
+  border: 3px solid #00d4ff; /* glowing light blue */
+  border-radius: 12px;
+}
+
+@keyframes highlightChat {
+  0% { box-shadow: 0 0 0px rgba(0, 212, 255, 0); }
+  50% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
+}
+
