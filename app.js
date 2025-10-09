@@ -6011,6 +6011,19 @@ signinBtn.onclick = () => {
   status('Ready');
   localMemory = JSON.parse(localStorage.getItem('coachjoel_mem_' + currentUser)) || [];
   renderChat();
+signinBtn.onclick = () => {
+  const id = identityInput.value.trim();
+  if(!id){ alert('Enter Telegram username or InterLink ID'); return; }
+  currentUser = id;
+  greetingEl.textContent = `Hello, ${currentUser}`;
+  status('Ready');
+  localMemory = JSON.parse(localStorage.getItem('coachjoel_mem_' + currentUser)) || [];
+  renderChat();
+
+  // Scroll chat section into view on mobile
+  const rightPanel = document.querySelector('.right');
+  rightPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 };
 
 logoutBtn.onclick = () => {
@@ -6225,3 +6238,4 @@ function init(){
   status('Idle');
 }
 init();
+
