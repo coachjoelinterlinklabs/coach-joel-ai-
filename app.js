@@ -5965,8 +5965,7 @@ Points) is what reflects referral activity:
 In short: Past rewards in $ITLG are not restored, but reactivation of your referral will
 help you regain HHP and improve your future earning potential.
 
-`;
-const aiMemory = [
+`;const aiMemory = [
 ];
 
 /* ================================================================ */
@@ -6032,12 +6031,17 @@ clearBtn.onclick = () => {
 
 /* ---------- UI helpers ---------- */
 function status(text){ statusEl.textContent = 'Status: ' + text; }
-function renderChat(){
-  chatArea.innerHTML = '';
-  localMemory.forEach(m => appendMessage(m.role, m.text));
-  chatArea.scrollTop = chatArea.scrollHeight;
+
+/* Add message dynamically (user or AI) */
+function addMessage(role, text) {
+  if(currentUser) {
+    localMemory.push({ role, text });
+    localStorage.setItem('coachjoel_mem_' + currentUser, JSON.stringify(localMemory));
+  }
+  appendMessage(role, text);
 }
 
+/* Append message to chat with links and copy button for AI */
 function appendMessage(role, text) {
   const row = document.createElement('div');
   row.className = 'msg ' + (role === 'user' ? 'user' : 'ai');
@@ -6046,77 +6050,85 @@ function appendMessage(role, text) {
   avatar.className = 'avatar';
   avatar.textContent = role === 'user' ? 'U' : 'C';
 
+  const bubbleWrapper = document.createElement('div');
+  bubbleWrapper.className = 'bubble-wrapper';
+  bubbleWrapper.style.position = 'relative';
+
   const bubble = document.createElement('div');
   bubble.className = 'bubble';
+  linkifyTextNodes(text, bubble);
 
-  // ✅ Convert text to HTML with clickable links
-  const html = linkifyAndEscape(text);
-  bubble.innerHTML = html;
+  bubbleWrapper.appendChild(bubble);
+
+  // Copy button only for AI
+  if(role === 'ai') {
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = '📋';
+    copyBtn.title = 'Copy message';
+    copyBtn.style.position = 'absolute';
+    copyBtn.style.top = '4px';
+    copyBtn.style.right = '4px';
+    copyBtn.style.background = 'transparent';
+    copyBtn.style.border = 'none';
+    copyBtn.style.cursor = 'pointer';
+    copyBtn.style.color = '#1de9ff';
+    copyBtn.style.fontSize = '14px';
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!')).catch(err=>console.error('Copy failed', err));
+    });
+    bubbleWrapper.appendChild(copyBtn);
+  }
 
   row.appendChild(avatar);
-  row.appendChild(bubble);
+  row.appendChild(bubbleWrapper);
   chatArea.appendChild(row);
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-/* ---------- Safe clickable links ---------- */
-function linkifyAndEscape(text) {
-  if (!text) return '';
-
-  // Escape HTML special chars
-  const escapeHtml = str =>
-    str.replace(/[&<>"']/g, m => ({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#39;'
-    }[m]));
-
-  // Regex to match URLs including t.me links
-  const urlRegex = /\b((https?:\/\/|www\.|t\.me\/)[^\s<]+)/gi;
-
-  // Split text by URL matches
-  let lastIndex = 0;
-  let result = '';
-  let match;
-
-  while ((match = urlRegex.exec(text)) !== null) {
-    const url = match[0];
-    const index = match.index;
-
-    // Add escaped text before the URL
-    result += escapeHtml(text.slice(lastIndex, index));
-
-    // Fix URL (add https if missing)
-    let href = url;
-    if (!/^https?:\/\//i.test(href)) {
-      href = 'https://' + href;
-    }
-
-    // Add clickable link
-    result += `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color:#1de9ff;text-decoration:underline;">${escapeHtml(url)}</a>`;
-
-    lastIndex = index + url.length;
-  }
-
-  // Add remaining text after last URL
-  result += escapeHtml(text.slice(lastIndex));
-
-  return result;
+/* Render all chat messages */
+function renderChat() {
+  chatArea.innerHTML = '';
+  localMemory.forEach(m => appendMessage(m.role, m.text));
+  chatArea.scrollTop = chatArea.scrollHeight;
 }
 
+/* ---------- Dynamic linkify function ---------- */
+function linkifyTextNodes(text, container) {
+  if(!text) return;
+  const urlRegex = /\b((https?:\/\/|www\.|t\.me\/)[^\s<>()]+)/gi;
+  const lines = text.split('\n');
+
+  lines.forEach((line, lineIndex)=>{
+    let lastIndex = 0;
+    let match;
+    while((match=urlRegex.exec(line))!==null){
+      const url = match[0];
+      const index = match.index;
+      if(index>lastIndex) container.appendChild(document.createTextNode(line.slice(lastIndex,index)));
+      let href = url;
+      if(!/^https?:\/\//i.test(href)) href = 'https://' + href;
+      const a = document.createElement('a');
+      a.href = href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = url;
+      a.style.color = '#1de9ff';
+      a.style.textDecoration = 'underline';
+      container.appendChild(a);
+      lastIndex = index + url.length;
+    }
+    if(lastIndex < line.length) container.appendChild(document.createTextNode(line.slice(lastIndex)));
+    if(lineIndex < lines.length - 1) container.appendChild(document.createElement('br'));
+  });
+}
 
 /* ---------- Send message ---------- */
 composer.addEventListener('keydown', (e) => {
-  if(e.key === 'Enter' && !e.shiftKey){
-    e.preventDefault();
-    sendMessage();
-  }
+  if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); sendMessage(); }
 });
 sendBtn.onclick = sendMessage;
 
-/* ---------- Voice to text with auto-send & mic glow ---------- */
+/* ---------- Voice to text ---------- */
 let recognition = null;
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -6125,63 +6137,23 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  recognition.onstart = () => {
-    voiceBtn.classList.add('mic-active');
-  };
-
-  recognition.onend = () => {
-    voiceBtn.classList.remove('mic-active');
-  };
-
+  recognition.onstart = () => { voiceBtn.classList.add('mic-active'); };
+  recognition.onend = () => { voiceBtn.classList.remove('mic-active'); };
   recognition.onresult = (ev) => {
     const transcript = ev.results[0][0].transcript;
     composer.value = transcript;
     composer.focus();
-
-    // Show user sending message
-    const feedbackRow = document.createElement('div');
-    feedbackRow.className = 'msg user';
-    const av = document.createElement('div');
-    av.className = 'avatar';
-    av.textContent = 'U';
-    const bubble = document.createElement('div');
-    bubble.className = 'bubble';
-    bubble.innerHTML = `<p>🎙️ Sending voice message...</p>`;
-    feedbackRow.appendChild(av);
-    feedbackRow.appendChild(bubble);
-    chatArea.appendChild(feedbackRow);
-    chatArea.scrollTop = chatArea.scrollHeight;
-
-    // Speak confirmation
-    if (ttsEnabled && window.speechSynthesis) {
-      const utter = new SpeechSynthesisUtterance("Message sent");
-      utter.lang = 'en-US';
-      window.speechSynthesis.speak(utter);
+    addMessage('user', '🎙️ Sending voice message...');
+    if(ttsEnabled && window.speechSynthesis){ 
+      const utter = new SpeechSynthesisUtterance("Message sent"); 
+      utter.lang = 'en-US'; 
+      window.speechSynthesis.speak(utter); 
     }
-
-    // Auto-send after a short delay
-    setTimeout(() => {
-      sendMessage();
-    }, 500);
+    setTimeout(()=>sendMessage(),500);
   };
 }
-
-voiceBtn.onclick = () => {
-  if (!recognition) {
-    alert('Speech recognition not supported');
-    return;
-  }
-  recognition.start();
-};
-
-micToggle.onclick = () => {
-  if (!recognition) {
-    alert('Speech recognition not supported');
-    return;
-  }
-  recognition.start();
-};
-
+voiceBtn.onclick = () => { if(!recognition){ alert('Speech recognition not supported'); return; } recognition.start(); };
+micToggle.onclick = () => { if(!recognition){ alert('Speech recognition not supported'); return; } recognition.start(); };
 
 /* ---------- Text-to-Speech ---------- */
 ttsToggle.onclick = () => {
@@ -6205,31 +6177,35 @@ function speakText(text){
 
 /* ---------- Typing & progressive reveal ---------- */
 function showTypingReveal(answerText){
-  const typingRow = document.createElement('div'); typingRow.className = 'msg ai';
+  const typingRow = document.createElement('div'); 
+  typingRow.className = 'msg ai';
   const av = document.createElement('div'); av.className='avatar'; av.textContent='C';
+  const bubbleWrapper = document.createElement('div'); 
+  bubbleWrapper.className='bubble-wrapper';
+  bubbleWrapper.style.position='relative';
   const bubble = document.createElement('div'); bubble.className='bubble';
-  bubble.innerHTML = `<p class="typing">Coach Joel AI is composing…</p>`;
-  typingRow.appendChild(av); typingRow.appendChild(bubble);
+  bubble.innerHTML=`<p class="typing">Coach Joel AI is composing…</p>`;
+  bubbleWrapper.appendChild(bubble);
+  typingRow.appendChild(av); typingRow.appendChild(bubbleWrapper);
   chatArea.appendChild(typingRow);
   chatArea.scrollTop = chatArea.scrollHeight;
 
   setTimeout(()=>{
-    bubble.innerHTML = '<p></p>';
-    const p = bubble.querySelector('p');
-    let i=0;
-    const speed = 10;
+    bubble.innerHTML='<p></p>';
+    const p=bubble.querySelector('p');
+    let i=0; const speed=10;
     function step(){
-      i += speed;
-      p.textContent = answerText.slice(0,i);
-      chatArea.scrollTop = chatArea.scrollHeight;
-      if(i < answerText.length) requestAnimationFrame(step);
+      i+=speed;
+      p.textContent=answerText.slice(0,i);
+      chatArea.scrollTop=chatArea.scrollHeight;
+      if(i<answerText.length) requestAnimationFrame(step);
       else {
-        localMemory.push({role:'ai', text: answerText});
-        localStorage.setItem('coachjoel_mem_' + currentUser, JSON.stringify(localMemory));
+        chatArea.removeChild(typingRow);
+        addMessage('ai', answerText);
       }
     }
     requestAnimationFrame(step);
-  }, 600 + Math.random()*400);
+  },600+Math.random()*400);
 }
 
 /* ---------- Send message main flow ---------- */
@@ -6237,48 +6213,41 @@ async function sendMessage(){
   if(!currentUser){ alert('Please sign in first'); return; }
   const text = composer.value.trim();
   if(!text) return;
-  localMemory.push({role:'user', text});
-  localStorage.setItem('coachjoel_mem_' + currentUser, JSON.stringify(localMemory));
-  renderChat();
-  composer.value = '';
+  addMessage('user', text);
+  composer.value='';
   status('Thinking...');
 
-  const profile = aiMemory.find(a => a.id.toLowerCase() === currentUser.toLowerCase() || a.telegram.toLowerCase() === currentUser.toLowerCase());
+  const profile = aiMemory.find(a => a.id.toLowerCase()===currentUser.toLowerCase()||a.telegram.toLowerCase()===currentUser.toLowerCase());
   const userInfo = profile ? `Profile: ${profile.coach} (${profile.country}), Tier: ${profile.tier}` : 'Profile: not found';
-
   const prompt = SYSTEM_PROMPT + "\n\nUser Info:\n" + userInfo + "\n\nConversation:\n" +
-    localMemory.slice(-12).map(m => (m.role==='user' ? `User: ${m.text}` : `Coach Joel AI: ${m.text}`)).join("\n") +
+    localMemory.slice(-12).map(m => (m.role==='user'?`User: ${m.text}`:`Coach Joel AI: ${m.text}`)).join("\n") +
     `\n\nUser: ${text}\nAssistant:`;
+  const payload = { contents:[{parts:[{text:prompt}]}] };
 
-  const payload = { contents: [{ parts: [{ text: prompt }] }] };
-
-  try {
+  try{
     status('Please wait...');
-    const resp = await fetch(GEMINI_ENDPOINT + '?key=' + encodeURIComponent(API_KEY), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+    const resp = await fetch(GEMINI_ENDPOINT+'?key='+encodeURIComponent(API_KEY),{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
     });
-    const j = await resp.json();
-    const answer = j?.candidates?.[0]?.content?.parts?.map(p=>p.text).join('\n') || 'I could not generate a response. Please try again later.';
+    const j=await resp.json();
+    const answer=j?.candidates?.[0]?.content?.parts?.map(p=>p.text).join('\n')||'I could not generate a response. Please try again later.';
     status('Ready');
     showTypingReveal(answer);
     speakText(answer);
-  } catch(err){
+  }catch(err){
     console.error('API error', err);
-    localMemory.push({role:'ai', text: 'Error: ' + (err.message||err)});
-    localStorage.setItem('coachjoel_mem_' + currentUser, JSON.stringify(localMemory));
-    renderChat();
+    addMessage('ai','Error: '+(err.message||err));
     status('Error contacting API');
   }
 }
 
 /* ---------- Init ---------- */
 function init(){
-  if(window.speechSynthesis && window.speechSynthesis.getVoices().length === 0){
+  if(window.speechSynthesis && window.speechSynthesis.getVoices().length===0){
     window.speechSynthesis.onvoiceschanged = ()=>{};
   }
   status('Idle');
 }
 init();
-
