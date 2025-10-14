@@ -6037,19 +6037,53 @@ function renderChat(){
   localMemory.forEach(m => appendMessage(m.role, m.text));
   chatArea.scrollTop = chatArea.scrollHeight;
 }
-function appendMessage(role, text){
+
+function appendMessage(role, text) {
   const row = document.createElement('div');
   row.className = 'msg ' + (role === 'user' ? 'user' : 'ai');
-  const avatar = document.createElement('div'); avatar.className = 'avatar'; avatar.textContent = role === 'user' ? 'U' : 'C';
-  const bubble = document.createElement('div'); bubble.className = 'bubble';
-  const parts = text.split(/\n{2,}/).map(p => `<p>${escapeHtml(p)}</p>`).join('');
-  bubble.innerHTML = parts;
+
+  const avatar = document.createElement('div');
+  avatar.className = 'avatar';
+  avatar.textContent = role === 'user' ? 'U' : 'C';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+
+  // ✅ Convert text to HTML with clickable links
+  const html = linkifyAndEscape(text);
+  bubble.innerHTML = html;
+
   row.appendChild(avatar);
   row.appendChild(bubble);
   chatArea.appendChild(row);
   chatArea.scrollTop = chatArea.scrollHeight;
 }
-function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+/* ---------- Safe clickable links ---------- */
+function linkifyAndEscape(text) {
+  if (!text) return '';
+
+  // Escape special HTML chars except for < and >
+  // We'll handle link tags after
+  const escaped = text.replace(/[&<>"']/g, m => ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[m]));
+
+  // ✅ Make links clickable (http, https, www, t.me)
+  const urlRegex = /\b((https?:\/\/|www\.|t\.me\/)[^\s<]+)/gi;
+
+  return escaped.replace(urlRegex, match => {
+    let url = match;
+    if (!/^https?:\/\//i.test(url)) {
+      url = 'https://' + url; // add protocol if missing
+    }
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:#1de9ff;text-decoration:underline;">${match}</a>`;
+  });
+}
 
 /* ---------- Send message ---------- */
 composer.addEventListener('keydown', (e) => {

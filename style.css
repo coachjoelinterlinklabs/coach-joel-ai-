@@ -277,11 +277,42 @@ textarea#composer {
 @media (max-width: 980px) {
   .panels {
     flex-direction: column;
+    height: auto;
   }
+
   .left {
     width: 100%;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .right {
+    width: 100%;
+    flex: 1;
+    min-height: 60vh;
+  }
+
+  body {
+    padding: 8px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+.chat-body {
+  flex: 1;
+  min-height: 50vh;
+}
+
+
+  .composer textarea {
+    font-size: 14px;
   }
 }
+
 
 .video-container {
   position: relative;
