@@ -6085,6 +6085,7 @@ function linkifyAndEscape(text) {
   });
 }
 
+
 /* ---------- Send message ---------- */
 composer.addEventListener('keydown', (e) => {
   if(e.key === 'Enter' && !e.shiftKey){
