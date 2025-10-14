@@ -6063,26 +6063,47 @@ function appendMessage(role, text) {
 function linkifyAndEscape(text) {
   if (!text) return '';
 
-  // Escape special HTML chars except for < and >
-  // We'll handle link tags after
-  const escaped = text.replace(/[&<>"']/g, m => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  }[m]));
+  // Escape HTML special chars
+  const escapeHtml = str =>
+    str.replace(/[&<>"']/g, m => ({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#39;'
+    }[m]));
 
-  // ✅ Make links clickable (http, https, www, t.me)
+  // Regex to match URLs including t.me links
   const urlRegex = /\b((https?:\/\/|www\.|t\.me\/)[^\s<]+)/gi;
 
-  return escaped.replace(urlRegex, match => {
-    let url = match;
-    if (!/^https?:\/\//i.test(url)) {
-      url = 'https://' + url; // add protocol if missing
+  // Split text by URL matches
+  let lastIndex = 0;
+  let result = '';
+  let match;
+
+  while ((match = urlRegex.exec(text)) !== null) {
+    const url = match[0];
+    const index = match.index;
+
+    // Add escaped text before the URL
+    result += escapeHtml(text.slice(lastIndex, index));
+
+    // Fix URL (add https if missing)
+    let href = url;
+    if (!/^https?:\/\//i.test(href)) {
+      href = 'https://' + href;
     }
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:#1de9ff;text-decoration:underline;">${match}</a>`;
-  });
+
+    // Add clickable link
+    result += `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color:#1de9ff;text-decoration:underline;">${escapeHtml(url)}</a>`;
+
+    lastIndex = index + url.length;
+  }
+
+  // Add remaining text after last URL
+  result += escapeHtml(text.slice(lastIndex));
+
+  return result;
 }
 
 
@@ -6260,3 +6281,4 @@ function init(){
   status('Idle');
 }
 init();
+
