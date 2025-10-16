@@ -5965,6 +5965,80 @@ Points) is what reflects referral activity:
 In short: Past rewards in $ITLG are not restored, but reactivation of your referral will
 help you regain HHP and improve your future earning potential.
 
+Data 
+
+Reina | InterLink Labs, [10/16/2025 12:40 PM]
+Dear Ambassadors, 
+
+InterLink Ambassador Profile is officially LIVE! 🚀
+
+Now everyone can create their own profile and express their personality  by:
+
+🔐 Login to Your Ambassador Profile
+Go to this link: ambassador.interlinklabs.ai. On the main screen, click Profile 
+
+Option 1: Log in with OTP
+Fill InterLink ID + Code + Mail → Click Send OTP.
+
+Option 2: Log in with Scan QR
+Enter your InterLink ID in the search box → click Confirm.
+1️⃣ Open the InterLink App
+ Launch the app on your phone and make sure you’re signed in.
+2️⃣ Scan this QR code
+ Go to Profile in the app → tap the scanner icon at the top right corner.
+
+Finally, start editing your profile
+Once verified, you’ll be redirected to your profile editor automatically - available on both phone and desktop.
+✨ It’s time for you to create your own profile.
+
+Your profile isn’t just a page -  it’s your gateway to visibility, credibility, and recognition across the InterLink ecosystem.
+Every completed profile strengthens the Real Human Network - and yours could be the next one featured. 🌟
+
+🚨 Don’t get left behind. Update your profile today and show the world the real human behind InterLink.
+
+Reina | InterLink Labs, [10/16/2025 2:54 PM]
+Dear Ambassadors,
+
+First of all, we would like to express our sincere appreciation for your enthusiasm and continuous contributions throughout our journey with InterLink. 
+
+In recent times, the number of Ambassadors participating in Daily Tasks has increased significantly (Daily Task 36 grew by +65% compared to Daily Task 34) - a truly positive signal showing that our community is expanding and spreading its impact more strongly than ever.
+
+To further motivate everyone to invest seriously and create high-quality, meaningful content, while ensuring that rewards are distributed fairly and reflect the true effort and value of each Ambassador, we would like to announce the following:
+Starting from Daily Task 38, the total reward pool for each Daily Task will be up to $200 USD.
+
+However, the reward structure will no longer be fixed by specific ranks, but will instead be flexibly determined based on:
+- The quality and creativity of the content
+- The level of reach and engagement
+- The total number of Ambassadors participating in each Daily Task.
+
+We sincerely hope to receive your understanding, support, and active cooperation as we continue to build a professional and creative Ambassador community together.
+
+Reina | InterLink Labs, [10/16/2025 3:05 PM]
+🎆 Task of the Day – Day 38
+
+The InterLink Ambassador Profile is officially LIVE! 🚀
+Ambassadors now have the chance to create their own profile, show their personality, and strengthen the Real Human Network. 
+
+🎯 Mission:
+- After completing your Ambassador Profile, you can proudly share your page - showcasing your achievements, highlights, ACS score, and personal identity within the InterLink ecosystem. Alternatively, you can encourage and guide other Ambassadors to create and complete their profiles.
+- While spreading this message to the wider community to attract potential users who aspire to become InterLink Ambassadors in the future (mandatory to invite at least one new Ambassador).
+
+✅ Go to this link: ambassador.interlinklabs.ai
+⏰ Task period: October 16-20
+🎯 Submission limit: Maximum 3 links per platform (accepted platforms: TikTok, X, YouTube)
+
+✅ Requirement: Add hashtags #InterLink #ITLG #ITL
+
+⚠️ Important:
+- Superficial or careless videos will result in tier downgrades and revocation of ambassador status.
+- Ambassadors who do not participate will face the same penalty.
+- Remember: An ambassador must demonstrate deep research, clear analysis, and the ability to educate the community.
+
+🏆 Reward: $200, distributed flexibly based on actual conditions, content quality, and the number of participants.
+Top 5 Ambassadors with the most impressive Profile designs: $5 each.
+
+✅ Submit all content links in this Daily Task Submission Form: https://forms.gle/xAkVGBGJgCY6yAbW6 
+📌 Note: Only contents posted within the period of this daily task will be considered valid.
 `;const aiMemory = [
 ];
 
@@ -6251,3 +6325,4 @@ function init(){
   status('Idle');
 }
 init();
+
