@@ -6035,6 +6035,360 @@ Top 5 Ambassadors with the most impressive Profile designs: $5 each.
 
 ✅ Submit all content links in this Daily Task Submission Form: https://forms.gle/xAkVGBGJgCY6yAbW6 
 📌 Note: Only contents posted within the period of this daily task will be considered valid.
+
+Database
+
+📜 InterLink Coach House – Official Rules & Guidelines
+These rules apply to all InterLink Ambassadors and Onboarding Group members. They take effect immediately upon reading.
+
+1. Social Media Requirement
+You must have social media accounts for content posting.
+
+
+X (Twitter) is required.
+
+
+TikTok, YouTube, Facebook, Instagram, or other platforms are optional but encouraged.
+
+
+X is prioritized because we are decentralized, and that’s where most decentralized project discussions happen.
+
+2. Updated Please see it here: https://t.me/Interlink_Coach_House_Onboarding/2199/43658
+
+3. T22_bot Level Requirement
+Reaching Level 50 on T22_bot is required for onboarding members.
+
+
+Inside the official Ambassadors’ Internal House, members with Level 100+ may qualify for token allocations.
+
+
+(For onboarding, reaching Level 50 is only a requirement to move forward.)
+
+
+📌 How to Level Up:
+Stay active in the group chat.
+
+
+Reactions to messages also give points.
+
+4. No Referral Requirement
+Referrals are not required to apply for the Ambassadors Program.
+
+
+What’s required:
+
+
+Social media accounts for content.
+
+
+Your own Telegram group for building your community (preparation for Community Builder responsibilities).
+
+5. Slowmode Activation
+Starting September 1, all InterLink groups will use a 10-second slow mode. And sending GIF/Stickers will terminate.
+
+
+This prevents spam and ensures every message has value and meaning, not just “Hi” or “Good morning.”
+
+
+
+6. No Spamming of Contents
+Do not spam content in chat rooms.
+
+
+Spammed content will be removed by moderators.
+
+
+All content must be sent in the Content Room / Content Chat only.
+
+7. Yapping Room (Free Chat)
+There is a Yapping Room where everyone can chat freely.
+
+
+You may talk about InterLink topics or share your personal life.
+
+
+This keeps the main groups organized while still encouraging bonding and open discussion.
+
+
+
+8. Strict Ban on FUD
+Anyone spreading direct FUD against the project will be banned immediately.
+
+
+No explanations, no second chances.
+
+9. Feedback Rules
+All feedback must be posted in the Feedback Topics section.
+
+
+Do not post feedback randomly in other chats.
+
+
+Always review and follow instructions carefully.
+
+10. Respect & Discipline
+Always remain respectful toward fellow Linkers.
+
+
+Think before you speak.
+
+
+Always respect your elders.
+
+
+Any fights or disrespect in groups = 3-day mute penalty.
+
+
+Disputes must be resolved privately via DM/PM.
+
+
+No personal attacks. Members must maintain unity, kindness, and teamwork.
+
+11. Project Questions
+If you have questions about the project:
+
+
+First, ask the Moderators.
+
+
+If not available, contact the Global Partners (GPs).
+
+
+
+12. Proper Channelling & Hierarchy
+Onboarding Groups are guided by Global Partners and their moderators.
+Respect hierarchy:
+T3 → must Report to T2.
+
+
+T2 → must Report to T1.
+
+
+T1 → must Report to GP.
+
+
+GP → reports to the Core Team daily.
+
+
+If a higher tier is unavailable:
+GP automatically takes over leadership for T2 or T3 groups.
+
+
+⚠️ Important Clarification:
+
+
+👉 This is not about superiority, but to maintain the purpose of separate groups for each tier.
+ 👉 Higher-tier ambassadors already have access to lower groups and will respond to your queries in your respective group only.
+✅ Thanks for understanding and respecting the structure.
+
+
+13. Regional Language Rule
+Only speak the specific country language in its regional group chat.
+
+
+Messages not in that country’s language will be deleted by moderators.
+
+
+
+14. Performance System for InterLink Coach House Onboarding Group For Trainees Only!
+Performance scoring during evaluation is based on:
+Daily Content Details:
+Follow our official X: 25%
+Contents: 25% 
+Total: 50%
+
+Renaming X Account and Telegram Account Names Details:
+Renaming X Account: 15%
+Renaming Telegram Account: 15%
+Total: 30%
+
+Group Activity & T22_bot Level Details
+Group Activity: 5%
+T22_bot Level: 5%
+Total: 10%
+
+
+Participation (means support other onboarding ambassadors) Details:
+Activities: 5%
+Participation: 5%
+Total: 10%
+Overall Total: 100%
+
+Summary:
+Daily Contents = 50%
+Renaming X Account and Telegram Account Names = 30%
+Group Activity & T22_bot Level = 10%
+Activities & Participation = 10%
+➡️ Total = 100%
+
+15. KOL (Key Opinion Leader) Applicants
+If you are already a KOL, you do not need to join the Onboarding Group.
+
+
+Instead:
+
+
+DM all your social media accounts.
+
+
+Introduce yourself (state your country).
+
+
+Provide your list of social media platforms (X “Former Twitter” is Mandatory), Optional Social Media Accounts: TikTok, YouTube, Facebook, Instagram).
+
+
+
+16. No Other Groups for InterLink Global Ambassadors 
+This is the official InterLink Global Ambassadors Group.
+
+
+Any other groups that are not official must be reported immediately.
+
+
+Members of unofficial groups cannot apply as Ambassadors, as they are not following the chain of command under the InterLink Core Team.
+
+
+
+17. Offline Events Rule
+If you want to conduct an offline event, it must be properly coordinated with the Official InterLink Team.
+
+
+If an event fails, the InterLink Labs Company name is affected, not yours.
+
+
+Therefore, no events are allowed without proper approval and alignment.
+
+
+
+18. Questions & Support
+For further questions, DM/PM the Global Partners.
+Global Partner Usernames in Telegram:
+@luke237 (Coach Luke)
+
+
+@C_Interlinklabs (Coach Joel)
+
+
+📌 Team List & Coverage:
+ Check which team you belong to and which GP you are under here:
+ 👉 InterLink Teams & Coverage Spreadsheet
+✅ These rules apply to all Ambassadors, whether official or currently under evaluation in the Onboarding Group.
+
+
+📌 Special Notes (Pinned Reminder)
+This ensures organization, focus, and clarity.
+ Higher-tier ambassadors will always address your concerns in your own group.
+⚠️ Trainee Ambassadors, must Build their own brand in InterLink X using this example format: 
+
+Please also follow the X Naming Format Same as Your Telegram Format.
+Example:
+Name | InterLink Trainee Ambassadors
+Your Bio
+✅ Coach Joel | InterLink Trainee Ambassador
+Bio: Official Trainee Ambassador of InterLink Labs - InterLink Network - ID: XXXXXXX
+
+Ambassadors Program – Transition to Level 5 System | Version 1.1
+
+Trainee ambassadors task database instructions and task
+📅 InterLink Onboarding – 1 Week Task Checklist
+✅ Tick each task once completed.
+Day
+Tasks
+✅
+Day 1 – Orientation & Setup
+🔹 Join official InterLink groups (Telegram & X )
+🔹 Follow Official InterLink X → https://x.com/inter_link
+🔹 Submit your X account link via the official form 
+🔹 Read the InterLink White Paper
+⬜
+Day 2 – Content Kickstart
+🔹 Post 1–3 contents on X about InterLink
+🔹 Submit links via in the HERE! CHOOSE NOT AMBASSADOR YET
+🔹 Engage in X Post everytime if there are new posts in our official X (1 meaningful messages) and Submit links via in the HERE! CHOOSE NOT AMBASSADOR YET
+⬜
+Day 3 – Community Engagement
+🔹 React/reply to 5 official or ambassador posts
+🔹 Welcome new applicants in group
+🔹 Post 1–3 X contents
+🔹 Submit links via in the HERE! CHOOSE NOT AMBASSADOR YET
+⬜
+Day 4 – Education & Sharing
+🔹 Create & share 1 educational content (thread/video)
+🔹 Continue 1–3 X posts
+🔹 Submit links via in the HERE! CHOOSE NOT AMBASSADOR YET
+⬜
+Day 5 – Creativity Challenge
+🔹 Create unique promo content (meme, poster, video)
+🔹 Post on X (and other platforms optional)
+🔹 Get 2–3 friends to engage
+🔹 Submit links via in the HERE! CHOOSE NOT AMBASSADOR YET
+⬜
+Day 6 – Leadership Practice
+🔹 Answer 1 question from another applicant
+🔹 Post 1 motivational/teamwork content
+🔹 Continue 1–3 X posts, and Build a Telegram Group
+🔹 Submit links via in the HERE! CHOOSE NOT AMBASSADOR YET
+⬜
+Day 7 – Weekly Wrap-Up
+🔹 Post a reflection content (thread/video/post)
+🔹 Continue 1–3 X posts
+🔹 Submit links via in the HERE! CHOOSE NOT AMBASSADOR YET
+🔹 Prepare for evaluator review, if Social Media Account is Suspended under the 7days Training, you will be retraining for next Batch
+⬜
+
+
+Daily Content Details:
+Follow our official X: 25%
+Contents: 25% 
+Total: 50%
+
+Renaming X Account and Telegram Account Names Details:
+Renaming X Account: 15%
+Renaming Telegram Account: 15%
+Total: 30%
+
+Group Activity & T22_bot Level Details
+Group Activity: 5%
+T22_bot Level: 5% ( to get this 5% you must be Lvl 50 )
+Total: 10%
+
+Activities & Participation (means support other onboarding ambassadors) Details:
+Activities: 5%
+Participation: 5%
+Total: 10%
+Overall Total: 100%
+
+📌 Evaluation Criteria Summary:
+Daily Contents = 50%
+Renaming X Account and Telegram Account Names = 30%
+Group Activity & T22_bot Level = 10%
+Activities & Participation = 10%
+ ➡️ Total = 100%
+
+
+Don't forget to submit your CONTENT HERE! CHOOSE NOT AMBASSADOR YET
+
+🎓 Onboarding Global Ambassadors (Trainees) (Based on Performance)
+Other project sidelines are allowed.
+
+
+Must comply with Onboarding Forms and Requirements.
+
+
+Demotion: If forms are incomplete or non-compliant, members will be demoted.
+
+
+Participation: Still eligible for Daily and Monthly Task Submissions Form.
+
+
+Reminder: InterLink values quality over quantity – effort is recognized even at the trainee stage.
+
+
+Reporting: Direct to Moderators → Moderators report to Global Partners.
+
+
+Requirement: Minimum 10+ followers on any social media account.
+
 `;const aiMemory = [
 ];
 
@@ -6321,5 +6675,6 @@ function init(){
   status('Idle');
 }
 init();
+
 
 
