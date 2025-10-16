@@ -7,15 +7,283 @@
 <title>Coach Joel AI — Professional Mentor</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+<style>
+:root {
+  --bg: #f4f6f8;
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --accent: #0ea5e9;
+  --neon-bg-start: #001428;
+  --neon-bg-end: #000010;
+}
+
+/* Galaxy Background */
+body {
+  background: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+  background-size: cover;
+  color: #e6f7ff;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  padding-bottom: 70px; /* Prevent content hidden behind footer */
+}
+
+* { box-sizing: border-box; }
+
+/* ====== HEADER ====== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #052a46, #0b6fbf);
+  padding: 14px 18px;
+  border-radius: 0 0 10px 10px;
+  color: #dff9ff;
+  box-shadow: 0 0 25px rgba(29, 233, 255, 0.5);
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1de9ff, #6a7cff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #001;
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: 0 0 20px rgba(29,233,255,0.6);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 13px;
+  color: #bfefff;
+}
+
+/* ====== MAIN APP ====== */
+.app {
+  width: 100%;
+  max-width: 1100px;
+  margin: 100px auto 0 auto; /* offset for fixed header */
+  display: flex;
+  gap: 18px;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.panels {
+  display: flex;
+  gap: 18px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Glowing border panels */
+.left, .right {
+  border: 2px solid rgba(29, 233, 255, 0.6);
+  box-shadow: 0 0 15px rgba(29, 233, 255, 0.8), 0 0 30px rgba(29, 233, 255, 0.6);
+  animation: glow 2.5s infinite alternate;
+  background: rgba(0, 0, 10, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(29, 233, 255, 0.6), 0 0 20px rgba(29, 233, 255, 0.4); }
+  100% { box-shadow: 0 0 20px rgba(29, 233, 255, 1), 0 0 40px rgba(29, 233, 255, 0.7); }
+}
+
+.left {
+  width: 320px;
+  padding: 14px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  color: #dff9ff;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Chat header */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  background: #052a46;
+}
+
+/* Chat body */
+.chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: linear-gradient(180deg, rgba(0, 0, 10, 0.3), transparent);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat bubbles */
+.msg {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  max-width: 85%;
+}
+
+.msg.user {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #1de9ff, #6a7cff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #001;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 6px 24px rgba(29, 233, 255, 0.06);
+}
+
+.bubble {
+  padding: 12px 14px;
+  border-radius: 10px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(29, 233, 255, 0.06);
+  color: #dff9ff;
+}
+
+/* Composer */
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  align-items: center;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 10, 0.3));
+}
+
+textarea#composer {
+  flex: 1;
+  min-height: 48px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.28);
+  color: #e6f7ff;
+  resize: none;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #0ea5e9, #6a7cff);
+  color: #001;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: #dff9ff;
+}
+
+.btn.circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Video box */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: 10px;
+  border: 3px solid rgba(29, 233, 255, 0.6);
+  box-shadow: 0 0 20px rgba(29, 233, 255, 0.8), 0 0 40px rgba(29, 233, 255, 0.6);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  font-size: 12px;
+  color: #bfefff;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(29, 233, 255, 0.6);
+  z-index: 999;
+  box-shadow: 0 0 20px rgba(29,233,255,0.6);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .panels { flex-direction: column; }
+  .left, .right { width: 100%; }
+  body { padding-bottom: 80px; }
+}
+</style>
 </head>
+
 <body>
   <header>
     <div class="brand">
       <div class="brand-logo">CJ</div>
-      <h1 style="font-size:13px;color:#bfefff">Welcome to Coach Joel AI</h1>
+      <h1>Welcome to Coach Joel AI</h1>
     </div>
-    <div style="font-size:13px;color:#bfefff"></div>
   </header>
 
   <div class="app">
@@ -31,26 +299,18 @@
 
         <div style="margin-top:12px" class="small">
           Coach Joel AI is your personal mentor to guide your journey in InterLink — from Ordinary Linker to Ambassador.  
-          Simply sign in with your name or InterLink ID to start.
         </div>
 
         <div style="margin-top:8px; font-size:12px; color:#bfefff;" class="small">
           📌 Onboarding Group:  
-          <a href="https://t.me/Interlink_Coach_House_Onboarding" target="_blank" style="color:#bfefff; text-decoration:underline;">
-            https://t.me/Interlink_Coach_House_Onboarding
-          </a><br>
+          <a href="https://t.me/Interlink_Coach_House_Onboarding" target="_blank" style="color:#bfefff;text-decoration:underline;">https://t.me/Interlink_Coach_House_Onboarding</a><br>
           📌 Official Ambassador Group:  
-          <a href="https://t.me/+ZCennyO_1c5jNjI1" target="_blank" style="color:#bfefff; text-decoration:underline;">
-            https://t.me/+ZCennyO_1c5jNjI1
-          </a>
+          <a href="https://t.me/+ZCennyO_1c5jNjI1" target="_blank" style="color:#bfefff;text-decoration:underline;">https://t.me/+ZCennyO_1c5jNjI1</a>
         </div>
-		<div class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/1Zah5S6QBMs?rel=0" title="YouTube video player" allowfullscreen></iframe>
-</div>
 
-
-        <div id="amb-list" style="margin-top:8px" class="small"></div>
-        <hr style="border-color:rgba(255,255,255,0.02);margin:12px 0">
+        <div class="video-container">
+          <iframe src="https://www.youtube-nocookie.com/embed/1Zah5S6QBMs?rel=0" title="YouTube video player" allowfullscreen></iframe>
+        </div>
       </aside>
 
       <section class="right">
@@ -77,10 +337,10 @@
     </div>
   </div>
 
-  <footer style="text-align:center; padding:12px; font-size:12px; color:#bfefff; background:rgba(0,0,0,0.5); border-top:1px solid rgba(29,233,255,0.6);">
+  <footer>
     © 2025 Coach Joel AI • Powered by InterLink Labs • All Rights Reserved<br>
-    <a href="https://interlinklabs.ai" target="_blank" style="color:#bfefff; text-decoration:underline;">interlinklabs.ai</a> |  
-    <a href="https://github.com/" target="_blank" style="color:#bfefff; text-decoration:underline;">GitHub Repository</a>
+    <a href="https://interlinklabs.ai" target="_blank" style="color:#bfefff;text-decoration:underline;">interlinklabs.ai</a> |  
+    <a href="https://github.com/" target="_blank" style="color:#bfefff;text-decoration:underline;">GitHub Repository</a>
   </footer>
 
 <script src="app.js"></script>

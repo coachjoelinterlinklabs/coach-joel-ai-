@@ -400,7 +400,6 @@ textarea#composer {
   animation: micGlow 1s infinite alternate;
   color: #0ea5e9;
 }
-
 footer {
   position: fixed;
   bottom: 0;
@@ -431,4 +430,3 @@ body {
     padding-bottom: 70px;
   }
 }
-
