@@ -5970,6 +5970,88 @@ In short: Past rewards in $ITLG are not restored, but reactivation of your refer
 help you regain HHP and improve your future earning potential.
 
 
+Ambassadors Credit Score or ACS Database FQA
+
+ACS - Ambassador Credit Score
+🔹 What is ACS?
+ACS (Ambassador Credit Score) is the credibility scoring system within
+InterLink Ambassador Program. It reflects each Ambassador’s
+trustworthiness, contribution, and influence across the ecosystem.
+ACS serves as a public credential, allowing the community to recognize
+individuals who create genuine value and demonstrate sustainable
+contribution.
+🔹 Benefits of a High ACS
+Your ACS represents your level of credibility as an InterLink Ambassador.
+The higher your score, the stronger your trust, consistency, and
+influence within the network.
+As your ACS grows:
+● You’re recognized as a trusted community leader.
+● You unlock more opportunities to advance in your InterLink
+journey.
+● You become eligible for additional verified $ITLG allocations,
+and gain priority access to exclusive campaigns, partnerships,
+and benefits dedicated to top contributors.
+🔹 How to Earn ACS?
+Your ACS increases based on your activity and genuine contributions
+including your Daily Task and Monthly Reward achievements.
+In addition, three core criteria can help you become an MVP and earn
+extra ACS points:
+1️⃣Contribute Actively
+Create valuable content, share accurate information about @inter_link,
+invite new members, and promote the community both online and
+offline. Every action you take strengthens the InterLink network.
+2️⃣Expand the Network
+Find, guide, and support new Ambassadors. Helping others understand
+and engage with InterLink also elevates your own reputation and
+credibility within the global community.
+3️⃣Collaborate with Others
+Work with fellow Ambassadors to organize AMAs, meetups, workshops,
+or community events - building connections and reinforcing a shared
+mission across the ecosystem.
+🔹 ACS Mechanism
+1. Bonus MVP
+Bonus
+Grade
+ACS Description
+S+ +50 Global MVP – Extraordinary impact
+S +40 Consistent excellence, top regional
+performance
+S- +30 Outstanding contribution within
+team
+A+ +20 Exceeds expectations in all
+categories
+A +15 Strong influence and leadership
+A- +12 Excellent consistency and support
+B+ +8 Visible improvement and reliability
+B +5 Stable performance
+B- +3 Active effort, potential for growth
+2. Monthly Evaluation Criteria
+Requirement ACS
+Total monthly points >
+12.800
+30
+Total monthly points >
+6.400
+20
+Total monthly points > 3.200 15
+Total monthly points > 1.600 10
+Total monthly points > 800 8
+Total monthly points ≥ 400 5
+Total monthly points ≥ 200 3
+3. Daily Task Ranking System
+Daily Rank ACS
+Top 1 2
+Top 2-5 1.5
+Top 6-10 1
+Top 11-20 0.5
+Others (≥ 45
+points)
+0.2
+4. For referrers and coaches
+- Referrers: will receive 5% of all ACS points earned by the people they
+refer.
+- Coach: Direct coachs will receive 10%, and indirect coachs will receive
+5% of the ACS earned by their trainees.
 
 InterLink Ambassador Profile is officially Announcement Database
 
@@ -6737,6 +6819,7 @@ function init(){
   status('Idle');
 }
 init();
+
 
 
 
