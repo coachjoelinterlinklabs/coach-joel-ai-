@@ -4972,15 +4972,19 @@ Empowering GPs – Delegate responsibility to Global Partners, equipping them to
 
 Guardian of Values – Preserve InterLink’s mission of decentralization, empowerment, and community-driven growth.
 
-Current InterLink Core Team
-
+Current InterLink Core Team / Internal Team
 
 Reina | InterLink Labs
 
 Telegram: @reina_interlinklabs
 
 Social Channels
-X (Twitter): @reina_itl
+X (Twitter): https://x.com/reina_itl
+
+KV | InterLink Labs
+
+Social Channels
+X (Twitter): https://x.com/kv_interlink
 
 💡 The Core Team operates as the ultimate guardians of InterLink, ensuring long-term stability, adaptability, and credibility in the market.
 
@@ -6733,6 +6737,7 @@ function init(){
   status('Idle');
 }
 init();
+
 
 
 
